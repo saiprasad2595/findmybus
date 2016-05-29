@@ -1,6 +1,6 @@
  <html lang="en">
 <head>
-  <title>FindMyBus</title>
+  <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -9,7 +9,58 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
 </head>
+  <script type="text/javascript">
+  $(document).ready(function(){
+  	
 
+  		$(".imgarrow").hide();
+  	
+
+  	/*Get Request*/
+  $("#buttonclick").click(function(){
+  	/*Text to Speech*/
+
+  	var Vacancy,maketext,time;
+  	time="5kms";Vacancy="20";
+  	maketext="Your%20bus%20is%20"+time+"%20away"+"%20and%20has%20"+Vacancy+"%20seats";
+  	var link="http://api.voicerss.org/?key=f18cff93c0ec4b62a80ee09573355fd8&src="+maketext+"&hl=en-in&r=1";
+  	link=link.split("%20").join(" ");
+  	$(".audiochange").attr("src",link);
+
+
+  	$(".imgarrow").show();
+  
+  	$.get( "http://ah9.azurewebsites.net/api/Find?q=asdsadsad&lng=78.470298&lat=17.390177", function( data ) {
+
+		  $( ".northdest" ).html( "Kondapur Bus Stop" );
+		  $( ".northcapacity" ).html( "Almost Full" );
+		  $( ".northtime" ).html(data.NorthTime+" mins away" );
+
+		  // $( ".source" ) .html( "" + data.Source ); 
+		    $( ".southdest" ) .html( "Koti Bus Stop" );
+		     $( ".southcapactiy" ).html( "Mostly Free ");
+		  $( ".southtime" ).html( data.SouthTime +" mins away");
+
+		}, "json" ); 
+  });
+
+			 $('#radio1').change(function() {
+			    if(this.checked) 
+			    {
+			       $(".form-control").attr("placeholder","Enter the Bus Number");
+
+			    }
+			});
+			 $('#radio2').change(function() {
+			    if(this.checked) 
+			    {
+			       $(".form-control").attr("placeholder","Enter the Destination");
+			    }
+			});
+
+	});
+ 
+  </script>
 <body>
 	<!--<div class="row">
 
@@ -54,7 +105,7 @@
 		<div class="row">
 			<div class="col-lg-6 col-md-6 col-sm-5">
 
-				<audio  controls autoplay hidden>
+				<audio  controls  hidden>
 				  <source  src="http://api.voicerss.org/?key=f18cff93c0ec4b62a80ee09573355fd8&src=Your%20bus%20is%203%20minutes%20away&hl=en-in&r=1" type="audio/ogg" class="audiochange">
 				  <source src="horse.mp3" type="audio/mpeg">
 				  Your browser does not support the audio element.
@@ -84,52 +135,5 @@
 
 		</div><!--Contained-->
   </body>
-  <script type="text/javascript">
-  
-  	
 
-  		$(".imgarrow").hide();
-  	/*Text to Speech*/
-  	var distance,Vacancy,maketext;
-  	time="5kms";Vacancy="20";
-  	maketext="Your%20bus%20is%20"+time+"%20away"+"%20and%20has%20"+Vacancy+"%20seats";
-  	var link="http://api.voicerss.org/?key=f18cff93c0ec4b62a80ee09573355fd8&src="+maketext+"&hl=en-in&r=1";
-  	link=link.split("%20").join(" ");
-  	$(".audiochange").attr("src",link);
-
-
-  	/*Get Request*/
-  $("#buttonclick").click(function(){
-
-  	$(".imgarrow").show();
-  
-  	$.get( "http://ah9.azurewebsites.net/api/Find?q=asdsadsad&lng=78.470298&lat=17.390177", function( data ) {
-
-		  $( ".northdest" ).html( "" + data.NorthDestination );
-		  $( ".northcapacity" ).html( "Vacancy: " + data.NorthCapacity+"%" );
-		  $( ".northtime" ).html(data.NorthTime+"mins away" );
-
-		  // $( ".source" ) .html( "" + data.Source ); 
-		    $( ".southdest" ) .html( "" + data.SouthDestination );
-		     $( ".southcapactiy" ).html( "Vacancy " + data.SouthCapacity+"%" );
-		  $( ".southtime" ).html( data.SouthTime +"mins away");
-
-		}, "json" ); 
-  });
-
-			 $('#radio1').change(function() {
-			    if(this.checked) 
-			    {
-			       $(".form-control").attr("placeholder","Enter the Bus Number");
-
-			    }
-			});
-			 $('#radio2').change(function() {
-			    if(this.checked) 
-			    {
-			       $(".form-control").attr("placeholder","Enter the Destination");
-			    }
-			});
- 
-  </script>
 </html>

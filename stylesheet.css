@@ -33,7 +33,7 @@ body{
 .displaynodes{
 	color: #ffffff;
 	font-family: "Open Sans";
-	margin-left: 138px;
+	margin-left: 105px;
 }
 
 .northtime{
@@ -59,4 +59,8 @@ body{
 .southcapactiy{
 	position: absolute;
     top: 85px;
+}
+.southdest{
+	margin-left: 135px;
+	margin-top: 12px;
 }
