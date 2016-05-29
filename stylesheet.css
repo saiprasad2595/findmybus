@@ -1,0 +1,62 @@
+.imgwidth{
+	height: 40%;
+	margin: 0 auto;
+	padding: 10 20;
+}
+
+p{
+	font-family: 'Open Sans';
+	font-size: 20px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	
+
+}
+
+.martop{
+	margin-top: 10px;
+}
+
+body{
+	background-color:#4A90E2;
+}
+
+.imgarrow{
+	margin: 0 auto;
+	height: 30%;
+}
+.source{
+	position: absolute;
+	top: 130px;
+}
+.displaynodes{
+	color: #ffffff;
+	font-family: "Open Sans";
+	margin-left: 138px;
+}
+
+.northtime{
+	position: absolute;
+    right: 16px;
+    top: 120px;
+}
+
+.radio{
+	display: inline-block;
+}
+
+.northcapacity{
+	position: absolute;
+    right: 15px;
+    top: 82px;
+}
+.southtime{
+	    position: absolute;
+    top: 121px;
+}
+
+.southcapactiy{
+	position: absolute;
+    top: 85px;
+}
